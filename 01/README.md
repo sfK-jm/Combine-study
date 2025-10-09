@@ -1,4 +1,8 @@
-// no Combine 일반적인 비동기 코드
+# 일반적인 비동기 코드와 combine코드 비교
+
+## no Combine 일반적인 비동기 코드
+
+```swift
 import Foundation
 
 struct CatFact: Decodable {
@@ -24,11 +28,18 @@ fetchCatFact { catFactString in
         print(catFactString)
     }
 }
+```
 
+## 컴바인 적용 후
 
-// 컴바인 적용 후
-
+```swift
+import Foundation
 import Combine
+
+struct CatFact: Decodable {
+    let fact: String
+    let length: Int
+}
 
 func fetchCatFactPubliser() -> AnyPublisher<CatFact, Error> {
     let url = URL(string: "https://catfact.ninja/fact")!
@@ -49,3 +60,4 @@ let subscription = fetchCatFactPubliser()
         print(catFatct)
     }
 
+```

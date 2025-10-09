@@ -1,3 +1,6 @@
+# Combine (Operator와 Subscriber) 살펴보기 
+
+```swift
 import Foundation
 import Combine
 
@@ -36,4 +39,4 @@ fetchCatFactPublisher()
         print(catFact)
     }
     .store(in: &anyCancellables)
-
+```
